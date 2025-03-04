@@ -1,25 +1,25 @@
 variable "resource_group_name" {
-  type    = string
-  default = "cmaz-64aed6d7-mod3-rg"
+  type        = string
+  default     = "cmaz-64aed6d7-mod3-rg"
   description = "The name of the resource group."
 }
 
 variable "location" {
-  type    = string
-  default = "East US"
-   description = "The name of the location"
+  type        = string
+  default     = "East US"
+  description = "The name of the location"
 }
 
 variable "storage_account_name" {
-  type    = string
-  default = "cmaz64aed6d7sa"
-   description = "The name of the storage group."
+  type        = string
+  default     = "cmaz64aed6d7sa"
+  description = "The name of the storage group."
 }
 
 variable "vnet_name" {
-  type    = string
-  default = "cmaz-64aed6d7-mod3-vnet"
-   description = "The name of the vnet."
+  type        = string
+  default     = "cmaz-64aed6d7-mod3-vnet"
+  description = "The name of the vnet."
 }
 
 variable "account_tier" {
@@ -57,17 +57,6 @@ variable "tags" {
   default     = {}
 }
 
-variable "frontend_subnet_name" {
-  description = "Name for the frontend subnet"
-  type        = string
-  default     = "frontend"
-}
-
-variable "backend_subnet_name" {
-  description = "Name for the backend subnet"
-  type        = string
-  default     = "backend"
-}
 
 variable "email" {
   description = "Contact email address"
