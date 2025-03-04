@@ -68,7 +68,7 @@ variable "backend_subnet_name" {
 variable "tags" {
   description = "A mapping of tags to assign to the resources."
   type        = map(string)
-  default     = {
+  default = {
     Creator = "raavi_sourav@epam.com"
   }
 }
