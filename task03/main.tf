@@ -8,29 +8,29 @@ resource "azurerm_storage_account" "main" {
   name                     = var.storage_account_name
   resource_group_name      = azurerm_resource_group.main.name
   location                 = azurerm_resource_group.main.location
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
+  account_tier             = var.account_tier
+  account_replication_type = var.account_replication_type
   tags                     = var.tags
 }
 
 resource "azurerm_virtual_network" "main" {
   name                = var.vnet_name
-  address_space       = ["10.0.0.0/16"]
+  address_space       = var.vnet_address_space
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   tags                = var.tags
 }
 
 resource "azurerm_subnet" "frontend" {
-  name                 = "frontend"
+  name                 = var.frontend_subnet_name
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
-  address_prefixes     = ["10.0.1.0/24"]
+  address_prefixes     = var.frontend_subnet_prefix
 }
 
 resource "azurerm_subnet" "backend" {
-  name                 = "backend"
+  name                 = var.backend_subnet_name
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
-  address_prefixes     = ["10.0.2.0/24"]
+  address_prefixes     = var.backend_subnet_prefix
 }
