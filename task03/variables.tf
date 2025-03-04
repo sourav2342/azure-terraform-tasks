@@ -23,11 +23,13 @@ variable "vnet_name" {
 }
 
 variable "account_tier" {
+  type        = string
   description = "The performance tier of the storage account."
   default     = "Standard"
 }
 
 variable "account_replication_type" {
+  type        = string
   description = "The replication type of the storage account."
   default     = "GRS"
 }
@@ -48,6 +50,18 @@ variable "backend_subnet_prefix" {
   description = "Address prefix for the backend subnet."
   type        = list(string)
   default     = ["10.0.2.0/24"]
+}
+
+variable "frontend_subnet_name" {
+  description = "The name of the frontend subnet."
+  type        = string
+  default     = "frontend"
+}
+
+variable "backend_subnet_name" {
+  description = "The name of the backend subnet."
+  type        = string
+  default     = "backend"
 }
 
 
